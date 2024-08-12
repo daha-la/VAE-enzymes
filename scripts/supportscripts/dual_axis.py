@@ -62,7 +62,7 @@ def plot_dual_axis(prs, wt, cl, res, inds, file, positions, out_path):
     # name = (file.split('/')[-1]).split('.')[0] + '.jpg'
     print(" Dual axis report : saving plot into", out_path)
     fig.savefig(out_path,
-                format='jpeg',
+                format='png',
                 dpi=800,
                 bbox_inches='tight')
 
