@@ -39,7 +39,9 @@ class Benchmarker:
         self.binary_shape = self.positive_control[0].shape
 
         self.model_param = load_from_pkl(os.path.join(run.model, "model_params.pkl"))
-        self.vae, conditional = AIModel(self.model_param).get_model()
+        self.latent_space = LatentSpace(run)
+        self.vae, conditional = self.latent_space.load_model()
+        #self.vae, conditional = AIModel(self.model_param).get_model()
 
         # Get training set
         binary_msa = load_from_pkl(os.path.join(run.pickles, "seq_msa_binary.pkl"))
