@@ -1,0 +1,15 @@
+# hmmbuild :: profile HMM construction from multiple sequence alignments
+# HMMER 3.4 (Aug 2023); http://hmmer.org/
+# Copyright (C) 2023 Howard Hughes Medical Institute.
+# Freely distributed under the BSD open source license.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# input alignment file:             vae_notebooks/datasets/PF00201.alignment.full
+# output HMM file:                  /Users/dahala/GitHub/VAE-enzymes/model.hmm
+# input alignment is asserted as:   protein
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# idx name                  nseq  alen  mlen eff_nseq re/pos description
+#---- -------------------- ----- ----- ----- -------- ------ -----------
+1     UDPGT                58310  4650   591 23801.95  0.590 UDP-glucoronosyl and UDP-glucosyl transferase
+
+# CPU time: 3.82u 0.18s 00:00:04.00 Elapsed: 00:00:04.71

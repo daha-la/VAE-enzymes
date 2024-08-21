@@ -1,0 +1,37 @@
+{
+    "paths": {
+        "dataset": "../datasets/PFAM_hmmalign_fix.faa",
+        "result": "../results/pfam201_hmm"
+    },
+    "msa": {
+        "clustering": false,
+        "identity": 90,
+        "query": "Q9LSY9|PF00201(241...395)|UDP-glycosyltransferase",
+        "fixed_sequences": ["Q9LSY9|PF00201(241...395)|UDP-glycosyltransferase","B6SRY5|PF00201(267...442)|Glycosyltransferase","Q5IFH7|PF00201(273...424)|Glycosyltransferase"]
+    },
+    "training_parameters": {
+        "epochs": 10000,
+        "decay": -1,
+        "dynamic_decay": -1,
+        "batch_size": -1,
+        "K": -1
+    },
+    "model": {
+        "layers": -1,
+        "lat_dim": 2,
+        "weights": -1
+    },
+    "generative_capacity": {
+        "run_capacity_test": true,
+        "percentage_of_seq_for_evaluation": 5
+    },
+    "ancestral_generation": {
+        "evo_query": -1,
+        "ancestors": -1
+    },
+    "conditional_vae_setting": {
+        "conditional_labels": "../datasets/hldI_II_soluprot.txt",
+        "solubility_threshold1": 0.35,
+        "solubility_threshold2": 0.55
+    }
+}

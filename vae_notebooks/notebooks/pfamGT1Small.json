@@ -1,0 +1,37 @@
+{
+    "paths": {
+        "dataset": "../datasets/PF00201.alignment.full",
+        "result": "../results/pfam201"
+    },
+    "msa": {
+        "clustering": false,
+        "identity": 90,
+        "query": "U71B1_ARATH/231-422",
+        "fixed_sequences": ["U71B1_ARATH/231-422","B6SRY5_MAIZE/245-452","Q5IFH7_MEDTR/244-441"]
+    },
+    "training_parameters": {
+        "epochs": 16000,
+        "decay": -1,
+        "dynamic_decay": -1,
+        "batch_size": -1,
+        "K": -1
+    },
+    "model": {
+        "layers": -1,
+        "lat_dim": 2,
+        "weights": -1
+    },
+    "generative_capacity": {
+        "run_capacity_test": true,
+        "percentage_of_seq_for_evaluation": 5
+    },
+    "ancestral_generation": {
+        "evo_query": -1,
+        "ancestors": -1
+    },
+    "conditional_vae_setting": {
+        "conditional_labels": "../datasets/hldI_II_soluprot.txt",
+        "solubility_threshold1": 0.35,
+        "solubility_threshold2": 0.55
+    }
+}
