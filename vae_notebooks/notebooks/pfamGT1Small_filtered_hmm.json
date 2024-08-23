@@ -1,6 +1,6 @@
 {
     "paths": {
-        "dataset": "../datasets/PFAM_filtered_hmm.afa",
+        "dataset": "../datasets/PFAM_filtered_hmmalign_fix.afa",
         "result": "../results/pfam201_filtered_hmm"
     },
     "msa": {
@@ -10,7 +10,7 @@
         "fixed_sequences": ["Q9LSY9|PF00201(241...395)|UDP-glycosyltransferase","B6SRY5|PF00201(267...442)|Glycosyltransferase","Q5IFH7|PF00201(273...424)|Glycosyltransferase"]
     },
     "training_parameters": {
-        "epochs": 3000,
+        "epochs": 10000,
         "decay": -1,
         "dynamic_decay": -1,
         "batch_size": -1,

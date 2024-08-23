@@ -18,6 +18,7 @@ from notebooks.minimal_version.parser_handler import RunSetup
 from notebooks.minimal_version.utils import load_from_pkl, store_to_pkl
 from notebooks.minimal_version.msa import MSA
 from notebooks.minimal_version.models.ai_models import AIModel
+from notebooks.minimal_version.latent_space import LatentSpace
 
 # Lambda for p(X,Zi)/q(Zi|X) of generated and original, given as sum of equal positions to length of original sequence
 marginal = lambda gen, orig: sum([1 if g == o else 0 for g, o in zip(gen, orig)]) / len(orig)
