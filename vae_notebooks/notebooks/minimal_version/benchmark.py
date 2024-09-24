@@ -22,7 +22,11 @@ from notebooks.minimal_version.latent_space import LatentSpace
 
 # Lambda for p(X,Zi)/q(Zi|X) of generated and original, given as sum of equal positions to length of original sequence
 marginal = lambda gen, orig: sum([1 if g == o else 0 for g, o in zip(gen, orig)]) / len(orig)
-
+import gc
+def check_all_tensors():
+    for obj in gc.get_objects():
+        if torch.is_tensor(obj):
+            print(f"Tensor found with shape: {obj.shape}, device: {obj.device}, dtype: {obj.dtype}")
 
 class Benchmarker:
     def __init__(self, run: RunSetup, samples=500, use_cuda=None):
@@ -98,6 +102,7 @@ class Benchmarker:
         return probabilities
 
     def bench_dataset(self):
+        check_all_tensors()
         marginals_positive = self._sample(MSA.binaries_to_tensor(self.positive_control), self.positive_labels)
         marginals_train = self._sample(MSA.binaries_to_tensor(self.train_data), self.train_labels)
         marginals_negative = self._sample(MSA.binaries_to_tensor(self.negative), self.negative_labels)
