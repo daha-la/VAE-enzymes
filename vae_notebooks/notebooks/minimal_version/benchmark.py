@@ -25,7 +25,7 @@ marginal = lambda gen, orig: sum([1 if g == o else 0 for g, o in zip(gen, orig)]
 
 
 class Benchmarker:
-    def __init__(self, run: RunSetup, samples=500):
+    def __init__(self, run: RunSetup, samples=500, use_cuda=None):
         """
         Conditional param will provide N_CLASSES for one how encoding else None
         Without ancestors
@@ -33,6 +33,7 @@ class Benchmarker:
 
         self.run = run
         self.samples = samples
+        self.use_cuda = use_cuda if use_cuda is not None else torch.cuda.is_available()
         positive_control_ids = load_from_pkl(os.path.join(run.pickles, "positive_control_ids.pkl"))
         self.positive_control = load_from_pkl(os.path.join(run.pickles, "positive_control.pkl"))
 
@@ -44,6 +45,9 @@ class Benchmarker:
         self.vae, conditional = self.latent_space.load_model()
         #self.vae, conditional = AIModel(self.model_param).get_model()
 
+        # Transfer model to GPU if use_cuda is True
+        if self.use_cuda:
+            self.vae = self.vae.cuda()
         # Get training set
         binary_msa = load_from_pkl(os.path.join(run.pickles, "seq_msa_binary.pkl"))
         training_ids = np.concatenate(np.array(load_from_pkl(os.path.join(run.pickles, "idx_subsets.pkl")), dtype=object).flatten())

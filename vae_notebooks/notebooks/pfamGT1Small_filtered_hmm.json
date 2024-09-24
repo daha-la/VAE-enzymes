@@ -1,7 +1,7 @@
 {
     "paths": {
         "dataset": "../datasets/PFAM_filtered_hmmalign_fix.afa",
-        "result": "../results/pfam201_filtered_hmm_2layers/"
+        "result": "../results/pfam201_filtered_hmm/"
     },
     "msa": {
         "clustering": false,
@@ -17,7 +17,7 @@
         "K": -1
     },
     "model": {
-        "layers": [427, 427],
+        "layers": -1,
         "lat_dim": 2,
         "weights": -1
     },

@@ -10,7 +10,7 @@
         "fixed_sequences": ["Pt_UGT1","OleD","At_72B1","Zm_85854"]
     },
     "training_parameters": {
-        "epochs": 10001,
+        "epochs": 1,
         "decay": -1,
         "dynamic_decay": -1,
         "batch_size": -1,

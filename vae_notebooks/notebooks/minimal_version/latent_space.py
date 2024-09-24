@@ -39,7 +39,7 @@ class LatentSpace:
         """
         model_param = load_from_pkl(os.path.join(self.run.model, "model_params.pkl"))
         vae, conditional = AIModel(model_param).get_model()
-        vae.load_state_dict(torch.load(self.model_name))
+        vae.load_state_dict(torch.load(self.model_name, map_location=torch.device('cpu')))
         # move the VAE onto a GPU
         if self.use_cuda:
             vae.cuda()
