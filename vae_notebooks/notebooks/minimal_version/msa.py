@@ -138,12 +138,22 @@ class MSA:
     @staticmethod
     def binaries_to_tensor(binaries) -> torch.Tensor:
         """
-        Get binary reshaped for vae
+        Get binary reshaped for VAE
         """
-        assert len(binaries.shape) >= 3  # only for batches
-        binaries = binaries.astype(np.float32)
-        binaries = binaries.reshape((binaries.shape[0], -1))
-        return torch.from_numpy(binaries)
+        assert len(binaries.shape) >= 3  # Only for batches
+
+        if isinstance(binaries, np.ndarray):
+            binaries = binaries.astype(np.float32)
+            binaries = binaries.reshape((binaries.shape[0], -1))
+            return torch.from_numpy(binaries)
+        
+        elif isinstance(binaries, torch.Tensor):
+            binaries = binaries.float()  # Equivalent to astype(np.float32)
+            binaries = binaries.view(binaries.shape[0], -1)  # Reshape tensor
+            return binaries
+        
+        else:
+            raise TypeError(f"Expected input to be a np.ndarray or torch.Tensor but got {type(binaries)}")
 
     @staticmethod
     def binary_to_tensor(binaries) -> torch.Tensor:
