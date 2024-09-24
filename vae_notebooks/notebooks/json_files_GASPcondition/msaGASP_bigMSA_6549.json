@@ -1,7 +1,7 @@
 {
     "paths": {
         "dataset": "../datasets/GASP_bigMSA.fa",
-        "result": "../results/GASP_bigMSA_7257"
+        "result": "../results/GASP_bigMSA_6549"
     },
     "msa": {
         "clustering": false,
@@ -30,7 +30,7 @@
         "ancestors": -1
     },
     "conditional_vae_setting": {
-        "conditional_labels": "../GASP_predictions/pred_blosum62Amb_GT1_wCazy_fix_7257.tsv",
+        "conditional_labels": "../GASP_predictions/pred_blosum62Amb_GT1_wCazy_fix_6549.tsv",
         "prob_threshold": 0.345
     }
 }
