@@ -87,17 +87,46 @@ class Benchmarker:
         Sample for each q(Z|X) for 10 000 times and make average
             1/N * SUM(p(X,Zi)/q(Zi|X))
         """
+        #probabilities = []
+        #with torch.no_grad():
+        #    for i, d in enumerate(data):
+        #        c = c_labels[i].unsqueeze(0) if c_labels is not None else None
+        #        mus, sigma = self.vae.encoder(d.unsqueeze(0), c)
+        #        numerical_sequences = self.vae.decode_samples(mus, sigma, self.samples, c)
+        #        original_sequence = MSA.binary_to_numbers_coding(d.reshape(self.binary_shape))
+        #        sum_p_X_Zi = 0
+        #        for decoded in numerical_sequences:
+        #            # SUM(p(X,Zi)/q(Zi|X))
+        #            sum_p_X_Zi += marginal(decoded, original_sequence)
+        #        probabilities.append(sum_p_X_Zi / self.samples)
+        #return probabilities
+        
         probabilities = []
         with torch.no_grad():
             for i, d in enumerate(data):
-                c = c_labels[i].unsqueeze(0) if c_labels is not None else None
+                # Move 'd' to the correct device
+                if self.use_cuda:
+                    d = d.cuda()
+                    if c_labels is not None:
+                        c = c_labels[i].unsqueeze(0).cuda()
+                    else:
+                        c = None
+                else:
+                    d = d.cpu()
+                    if c_labels is not None:
+                        c = c_labels[i].unsqueeze(0).cpu()
+                    else:
+                        c = None
+
                 mus, sigma = self.vae.encoder(d.unsqueeze(0), c)
                 numerical_sequences = self.vae.decode_samples(mus, sigma, self.samples, c)
                 original_sequence = MSA.binary_to_numbers_coding(d.reshape(self.binary_shape))
+                
                 sum_p_X_Zi = 0
                 for decoded in numerical_sequences:
-                    # SUM(p(X,Zi)/q(Zi|X))
+                    decoded = decoded.to(d.device)  # Ensure 'decoded' is on the correct device
                     sum_p_X_Zi += marginal(decoded, original_sequence)
+                
                 probabilities.append(sum_p_X_Zi / self.samples)
         return probabilities
 
