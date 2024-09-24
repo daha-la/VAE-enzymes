@@ -59,9 +59,9 @@ class LatentSpace:
             conditional_labels = load_from_pkl(
                 os.path.join(self.run.conditional_data, "conditional_labels_to_categories.pkl"))
         
-        #binary = torch.tensor(binary, dtype=torch.float32)
-        #if self.use_cuda:
-        #    binary = binary.cuda()
+        binary = torch.tensor(binary, dtype=torch.float32)
+        if self.use_cuda:
+            binary = binary.cuda()
 
         binaries_tensor = MSA.binaries_to_tensor(binary)
         with torch.no_grad():
