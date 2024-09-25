@@ -121,8 +121,8 @@ class MSA:
         Example: [[0,1,0],[0,0,1]] -> [1,2]
         """
         # Check if binary is a PyTorch tensor
-        #if isinstance(binary, torch.Tensor):
-        #    binary = binary.cpu().numpy()  # Move to CPU and convert to NumPy array
+        if isinstance(binary, torch.Tensor):
+            binary = binary.cpu().numpy()  # Move to CPU and convert to NumPy array
         
         return [np.where(one_hot_AA == 1)[0][0] for one_hot_AA in binary]
 
