@@ -1,7 +1,7 @@
 {
     "paths": {
         "dataset": "../datasets/EnzymeMiner_PtUGT1_fix.afa",
-        "result": "../results/EnzymeMiner_PtUGT1"
+        "result": "../results/EnzymeMiner_PtUGT1_79964"
     },
     "msa": {
         "clustering": false,

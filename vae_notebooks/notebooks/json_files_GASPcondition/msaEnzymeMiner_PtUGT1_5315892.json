@@ -1,7 +1,7 @@
 {
     "paths": {
         "dataset": "../datasets/EnzymeMiner_PtUGT1_fix.afa",
-        "result": "../results/EnzymeMiner_PtUGT1"
+        "result": "../results/EnzymeMiner_PtUGT1_5315892"
     },
     "msa": {
         "clustering": false,
@@ -30,7 +30,7 @@
         "ancestors": -1
     },
     "conditional_vae_setting": {
-        "conditional_labels": "../GASP_predictions/pred_blosum62Amb_EnzymeMiner_PtUGT1_fix_79964.tsv",
+        "conditional_labels": "../GASP_predictions/pred_blosum62Amb_EnzymeMiner_PtUGT1_fix_5315892.tsv",
         "prob_threshold": 0.345
     }
 }
