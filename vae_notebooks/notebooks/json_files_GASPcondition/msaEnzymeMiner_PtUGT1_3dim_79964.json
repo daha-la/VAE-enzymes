@@ -1,7 +1,7 @@
 {
     "paths": {
         "dataset": "../datasets/EnzymeMiner_PtUGT1_fix.afa",
-        "result": "../results/EnzymeMiner_PtUGT1_79964"
+        "result": "../results/EnzymeMiner_PtUGT1_3dim_79964"
     },
     "msa": {
         "clustering": false,
@@ -18,7 +18,7 @@
     },
     "model": {
         "layers": -1,
-        "lat_dim": 2,
+        "lat_dim": 3,
         "weights": -1
     },
     "generative_capacity": {
