@@ -30,7 +30,7 @@
         "ancestors": -1
     },
     "conditional_vae_setting": {
-        "conditional_labels": "../GASP_predictions/pred_blosum62Amb_EnzymeMiner_PtUGT1_fix_79964.tsv",
+        "conditional_labels": "../GASP_predictions/GASP_DCA_DCP.tsv",
         "prob_threshold": 0.345
     }
 }
