@@ -1,7 +1,7 @@
 {
     "paths": {
-        "dataset": "../datasets/EnzymeMiner_TRPase_trim_300_600_fix.afa",
-        "result": "../results/EnzymeMiner_TRPase_trim_300_600"
+        "dataset": "../datasets/EnzymeMiner_TRPase_trim_400_600_fix.afa",
+        "result": "../results/EnzymeMiner_TRPase_trim_400_600"
     },
     "msa": {
         "clustering": false,
@@ -29,7 +29,7 @@
         "muscle_path": "/Users/dahala/GitHub/VAE-enzymes/alignments/muscle",
         "hmmer_path": "/Users/dahala/Projects/HMMER/bin",
         "msa_fasta": "/Users/dahala/GitHub/VAE-enzymes/random_data/TRPase/Trim_400_600.fasta",
-        "msa_name": "EnzymeMiner_TRPase_trim_300_600",
-        "hmm_model": "EnzymeMiner_TRPase_trim_300_600"
+        "msa_name": "EnzymeMiner_TRPase_trim_400_600",
+        "hmm_model": "EnzymeMiner_TRPase_trim_400_600"
     }
 }
