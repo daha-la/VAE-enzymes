@@ -14,20 +14,21 @@ class HMMmodule:
 
         self.msa_fasta = run_config.msa_fasta
         self.msa_name = run_config.msa_name
-        self.hmm_model = run_config
+        self.hmm_model = run_config.hmm_model
         
     def MSA_create(self):
-        if not os.path.exists(f'muscle/{self.msa_name}.afa'):
+        if not os.path.exists(f'alignments/muscle_outputs//{self.msa_name}.afa'):
             print('Creating MSA using MUSCLE...')
             subprocess.run(f'{self.muscle_path} -align {self.msa_fasta} -output ../../alignments/muscle_outputs/{self.msa_name}.afa > ../../alignments/muscle_outputs/muscle_{self.msa_name}.log', shell=True, executable="/bin/zsh")
 
     def build(self):
         if not os.path.exists(f'hmm_model/{self.hmm_model}.hmm'):
             print('Building HMM model...')
+            print(f'{self.hmmer_path}/hmmbuild --amino ../../hmm_model/{self.hmm_model}.hmm ../../alignments/muscle_outputs/{self.msa_name}.afa > ../../hmm_model/{self.hmm_model}_hmmbuild.log')
             subprocess.run(f'{self.hmmer_path}/hmmbuild --amino ../../hmm_model/{self.hmm_model}.hmm ../../alignments/muscle_outputs/{self.msa_name}.afa > ../../hmm_model/{self.hmm_model}_hmmbuild.log', shell=True, executable="/bin/zsh")
 
     def align(self,fasta_name,fasta_ext = 'faa'):
-        subprocess.run(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm data/{fasta_name}.{fasta_ext} >> ../../alignments/{fasta_name}.afa', shell=True, executable="/bin/zsh")
+        subprocess.run(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm ../datasets/{fasta_name}.{fasta_ext} >> ../../alignments/{fasta_name}.afa', shell=True, executable="/bin/zsh")
         hmm_msa = AlignIO.read(f'../../alignments/{fasta_name}.afa', 'fasta')
         with open(f'../datasets/{fasta_name}_fix.afa','w') as out_file:
             for prot in hmm_msa:
