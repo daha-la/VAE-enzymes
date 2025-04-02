@@ -27,14 +27,15 @@ class HMMmodule:
             print(f'{self.hmmer_path}/hmmbuild --amino ../../hmm_model/{self.hmm_model}.hmm ../../alignments/muscle_outputs/{self.msa_name}.afa > ../../hmm_model/{self.hmm_model}_hmmbuild.log')
             subprocess.run(f'{self.hmmer_path}/hmmbuild --amino ../../hmm_model/{self.hmm_model}.hmm ../../alignments/muscle_outputs/{self.msa_name}.afa > ../../hmm_model/{self.hmm_model}_hmmbuild.log', shell=True, executable="/bin/zsh")
 
-    def align(self,fasta_name,fasta_ext = 'faa'):
-        subprocess.run(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm ../datasets/{fasta_name}.{fasta_ext} >> ../../alignments/{fasta_name}.afa', shell=True, executable="/bin/zsh")
+    def align(self,fasta_name,fasta_ext = 'faa',save_path = '../datasets'):
+        subprocess.run(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm ../datasets/{fasta_name}.{fasta_ext} > ../../alignments/{fasta_name}.afa', shell=True, executable="/bin/zsh")
         hmm_msa = AlignIO.read(f'../../alignments/{fasta_name}.afa', 'fasta')
-        with open(f'../datasets/{fasta_name}_fix.afa','w') as out_file:
+        with open(f'{save_path}/{fasta_name}_fix.afa','w') as out_file:
             for prot in hmm_msa:
                 out_file.write('>' + prot.id + '\n')
                 out_file.write(helper_functions.fix_seqs(str(prot.seq)))
                 out_file.write('\n')
+        out_file.close()
 
 
 class helper_functions:
