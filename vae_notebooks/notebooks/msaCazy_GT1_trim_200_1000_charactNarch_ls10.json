@@ -1,0 +1,35 @@
+{
+    "paths": {
+        "dataset": "../results/Cazy_GT1_trim_200_1000_charactNarch_ls10/msa/GT1_ncbi_filtered_200_1000_fix.afa",
+        "result": "../results/Cazy_GT1_trim_200_1000_charactNarch_ls10"
+    },
+    "msa": {
+        "clustering": false,
+        "identity": 90,
+        "query": "AEE76548.1",
+        "fixed_sequences": ["AEE76548.1"]
+    },
+    "training_parameters": {
+        "epochs": 16001,
+        "decay": -1,
+        "dynamic_decay": -1,
+        "batch_size": -1,
+        "K": -1
+    },
+    "model": {
+        "layers": -1,
+        "lat_dim": 10,
+        "weights": -1
+    },
+    "generative_capacity": {
+        "run_capacity_test": true,
+        "percentage_of_seq_for_evaluation": 5
+    },
+    "hmm": {
+        "muscle_path": "/Users/dahala/GitHub/VAE-enzymes/alignments/muscle",
+        "hmmer_path": "/Users/dahala/Projects/HMMER/bin",
+        "msa_fasta": "/Users/dahala/GitHub/VAE-enzymes/random_data/GT1/GT1_characterized_wArch.fasta",
+        "msa_name": "Cazy_GT1_charactNarch",
+        "hmm_model": "Cazy_GT1_charactNarch"
+    }
+}
