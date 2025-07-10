@@ -1,0 +1,35 @@
+{
+    "paths": {
+        "dataset": "../datasets/GmSuSy_EVC_b05.afa",
+        "result": "../results/GmSuSy_EVC_b05"
+    },
+    "msa": {
+        "clustering": false,
+        "identity": 90,
+        "query": "GmSuSy",
+        "fixed_sequences": ["GmSuSy"]
+    },
+    "training_parameters": {
+        "epochs": 16001,
+        "decay": -1,
+        "dynamic_decay": -1,
+        "batch_size": -1,
+        "K": -1
+    },
+    "model": {
+        "layers": -1,
+        "lat_dim": 2,
+        "weights": -1
+    },
+    "generative_capacity": {
+        "run_capacity_test": true,
+        "percentage_of_seq_for_evaluation": 5
+    },
+    "hmm": {
+        "muscle_path": "/Users/dahala/GitHub/VAE-enzymes/alignments/muscle",
+        "hmmer_path": "/Users/dahala/Projects/HMMER/bin",
+        "msa_fasta": "/Users/dahala/GitHub/VAE-enzymes/vae_notebooks/datasets/GmSuSy_EVC_b05_MSA.fasta",
+        "msa_name": "GmSuSy_EVC_b05",
+        "hmm_model": "GmSuSy_EVC_b05"
+    }
+}
