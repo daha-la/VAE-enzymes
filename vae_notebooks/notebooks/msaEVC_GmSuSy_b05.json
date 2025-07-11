@@ -1,6 +1,6 @@
 {
     "paths": {
-        "dataset": "../datasets/GmSuSy_EVC_b05.afa",
+        "dataset": "../datasets/GmSuSy_EVC_b05_MSA.afa",
         "result": "../results/GmSuSy_EVC_b05"
     },
     "msa": {

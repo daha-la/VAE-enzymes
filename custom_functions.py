@@ -29,6 +29,7 @@ class HMMmodule:
 
     def align(self,fasta_name,fasta_ext = 'faa',save_path = '../datasets'):
         subprocess.run(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm ../datasets/{fasta_name}.{fasta_ext} > ../../alignments/{fasta_name}.afa', shell=True, executable="/bin/zsh")
+        print(f'{self.hmmer_path}/hmmalign --trim --outformat afa ../../hmm_model/{self.hmm_model}.hmm ../datasets/{fasta_name}.{fasta_ext} > ../../alignments/{fasta_name}.afa')
         hmm_msa = AlignIO.read(f'../../alignments/{fasta_name}.afa', 'fasta')
         with open(f'{save_path}/{fasta_name}_fix.afa','w') as out_file:
             for prot in hmm_msa:

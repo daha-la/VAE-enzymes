@@ -1,0 +1,35 @@
+{
+    "paths": {
+        "dataset": "../results/GmSuSy_ASR_MSA_NoRestrict/msa/GmSuSy_ASR_MSA_NoRestrict_fix.afa",
+        "result": "../results/GmSuSy_ASR_MSA_NoRestrict"
+    },
+    "msa": {
+        "clustering": false,
+        "identity": 90,
+        "query": "GmSuSy",
+        "fixed_sequences": ["GmSuSy"]
+    },
+    "training_parameters": {
+        "epochs": 16001,
+        "decay": -1,
+        "dynamic_decay": -1,
+        "batch_size": -1,
+        "K": -1
+    },
+    "model": {
+        "layers": -1,
+        "lat_dim": 2,
+        "weights": -1
+    },
+    "generative_capacity": {
+        "run_capacity_test": true,
+        "percentage_of_seq_for_evaluation": 5
+    },
+    "hmm": {
+        "muscle_path": "/Users/dahala/GitHub/VAE-enzymes/alignments/muscle",
+        "hmmer_path": "/Users/dahala/Projects/HMMER/bin",
+        "msa_fasta": "/Users/dahala/GitHub/VAE-enzymes/vae_notebooks/datasets/GmSuSy_ASR_MSA_NoRestrict.fasta",
+        "msa_name": "GmSuSy_ASR_MSA_NoRestrict",
+        "hmm_model": "GmSuSy_ASR_MSA_NoRestrict"
+    }
+}
